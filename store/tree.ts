@@ -1,10 +1,12 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
-export const useTreeStore = defineStore("language", {
+export const useTreeStore = defineStore("tree", {
   state: () => ({
     locale: "ru",
-    tree: ref([]),
+    tree: ref<any>([]),
+    category: ref<any>({}),
+    child: ref<any>([]),
   }),
 
   actions: {
@@ -23,6 +25,9 @@ export const useTreeStore = defineStore("language", {
 
     setLocale(newLocale: string) {
       this.locale = newLocale;
+    },
+    setCategory(newCategory: any) {
+      this.category = newCategory;
     },
   },
 });
