@@ -13,9 +13,12 @@ onBeforeMount(async () => {
 });
 </script>
 <template>
-  <Header />
-  <div>
-    <slot />
+  <div v-if="store.tree.length === 0">Загрузка данных...</div>
+  <div v-else>
+    <Header />
+    <div>
+      <slot />
+    </div>
   </div>
 </template>
 <style scoped></style>

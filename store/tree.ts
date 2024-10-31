@@ -29,5 +29,17 @@ export const useTreeStore = defineStore("tree", {
     setCategory(newCategory: any) {
       this.category = newCategory;
     },
+    setChild(newChild: any) {
+      this.child = newChild;
+    },
+    getLocalizedValue(item: any, key: string) {
+      if (!item || !item.locale) return "";
+      return (
+        item.locale[this.locale]?.[key] ??
+        item.locale["ru"]?.[key] ??
+        item.locale["en"]?.[key] ??
+        item.locale["fr"]?.[key]
+      );
+    },
   },
 });
